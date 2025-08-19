@@ -61,3 +61,12 @@
   --ifm-badge-background-color: var(--vt-hokie-stone);
   --ifm-badge-color: var(--vt-white);
 }
+
+/* Local search modal theming */
+:root {
+  --search-local-highlight-color: var(--vt-orange-web);
+}
+
+[data-theme='dark'] {
+  --search-local-highlight-color: var(--vt-orange);
+}

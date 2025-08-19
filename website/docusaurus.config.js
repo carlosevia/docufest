@@ -151,6 +151,29 @@ const config = {
         darkTheme: prismThemes.dracula,
       },
     }),
-};
+themes: [
+    [
+      '@easyops-cn/docusaurus-search-local',
+      /** @type {import('@easyops-cn/docusaurus-search-local').PluginOptions} */
+      {
+        // Cache the index across deploys
+        hashed: true,
+
+        // What to index
+        indexDocs: true,
+        indexBlog: false,      // flip to true if you enable blog
+        indexPages: true,
+
+        // Optional UX tweaks
+        highlightSearchTermsOnTargetPage: true,
+        searchBarShortcut: true,
+        searchBarShortcutKeymap: 'mod+k',   // Cmd/Ctrl + K
+        searchBarPosition: 'right',
+        // language: ['en'],                 // add locales if needed
+      },
+    ],
+  ],
+
+  };
 
 export default config;
