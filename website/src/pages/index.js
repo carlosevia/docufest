@@ -1,42 +1,88 @@
-import clsx from 'clsx';
+import React from 'react';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-
-import Heading from '@theme/Heading';
-import styles from './index.module.css';
-
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
-}
 
 export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
-      <HomepageHeader />
+      title="DocuFest"
+      description="Documentation, content design, and content operations at Virginia Tech"
+    >
+      <header className="hero hero--primary">
+        <div className="container">
+          <h1 className="hero__title">DocuFest</h1>
+          <p className="hero__subtitle">
+            Learn, build, and ship great docs — powered by Docusaurus and styled in Virginia Tech colors.
+          </p>
+
+          <div className="buttons" style={{gap: '0.75rem', display: 'flex', flexWrap: 'wrap'}}>
+            <Link className="button button--secondary button--lg" to="/docs/intro">
+              Read the Docs
+            </Link>
+            <Link className="button button--accent button--lg" to="https://github.com/carlosevia/docufest">
+              View on GitHub
+            </Link>
+          </div>
+        </div>
+      </header>
+
       <main>
-        <HomepageFeatures />
+        {/* Audience cards */}
+        <section className="margin-vert--lg">
+          <div className="container">
+            <div className="row">
+              <div className="col col--4">
+                <h3>For Writers</h3>
+                <p>
+                  Draft in Markdown, organize with a docs sidebar, and keep voice and tone consistent.
+                </p>
+              </div>
+              <div className="col col--4">
+                <h3>For Editors</h3>
+                <p>
+                  Review Pull Requests, preview changes, and version content safely with Git.
+                </p>
+              </div>
+              <div className="col col--4">
+                <h3>For Engineers</h3>
+                <p>
+                  Reuse components, automate builds with GitHub Actions, and deploy to GitHub Pages.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Quick start */}
+        <section className="margin-vert--lg">
+          <div className="container">
+            <h2 className="margin-bottom--sm">Get Started</h2>
+            <ol>
+              <li>
+                Open the <Link to="/docs/intro">Introduction</Link> to learn the basics.
+              </li>
+              <li>
+                Edit files in <code>docs/</code>, commit, and push to <code>main</code>.
+              </li>
+              <li>
+                GitHub Actions builds your site and publishes it to{' '}
+                <code>https://carlosevia.github.io/docufest/</code>.
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        {/* What’s inside */}
+        <section className="margin-vert--lg">
+          <div className="container">
+            <h2 className="margin-bottom--sm">What’s Inside</h2>
+            <ul>
+              <li>Docs with search and a structured sidebar</li>
+              <li>Optional blog with tags and archives</li>
+              <li>Custom Virginia Tech color theme and components</li>
+            </ul>
+          </div>
+        </section>
       </main>
     </Layout>
   );
