@@ -4,27 +4,60 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/* ===== Virginia Tech brand variables ===== */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* Brand tokens (from VT Brand Center) */
+  --vt-maroon: #861F41;         /* Chicago Maroon */
+  --vt-orange: #E87722;         /* Burnt Orange */
+  --vt-orange-web: #C64600;     /* Burnt Orange - Web Use */
+  --vt-hokie-stone: #75787B;    /* Neutral gray */
+  --vt-white: #FFFFFF;
+
+  /* Docusaurus/Infima color system — primary is used for buttons, links (by default), navbar (when style: "primary"), etc. */
+  --ifm-color-primary: var(--vt-maroon);
+  /* Optional tints/shades for better states/hover; tweak as desired after contrast checks */
+  --ifm-color-primary-dark: #781C3A;
+  --ifm-color-primary-darker: #6C1934;
+  --ifm-color-primary-darkest: #58152B;
+  --ifm-color-primary-light: #9A3B59;
+  --ifm-color-primary-lighter: #A9546E;
+  --ifm-color-primary-lightest: #BF7A90;
+
+  /* Use VT’s higher-contrast orange for links on light backgrounds */
+  --ifm-link-color: var(--vt-orange-web);
+
+  /* Footer defaults */
+  --ifm-footer-background-color: var(--vt-maroon);
+  --ifm-footer-color: var(--vt-white);
+  --ifm-footer-link-color: var(--vt-white);
+
+  /* Code block highlight tint */
+  --docusaurus-highlighted-code-line-bg: rgba(134, 31, 65, 0.10);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Dark mode adjustments: use the web/digital orange for primary/link to pop on dark */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: var(--vt-orange-web);
+  --ifm-link-color: var(--vt-orange);
+  --docusaurus-highlighted-code-line-bg: rgba(198, 70, 0, 0.15);
+  /* Keep footer readable on dark; you can use maroon if you prefer */
+  --ifm-footer-background-color: #1b1b1d;
+}
+
+/* Navbar in "primary" style uses primary color as background; ensure legible link colors */
+.navbar--primary {
+  --ifm-navbar-link-color: var(--vt-white);
+  --ifm-navbar-link-hover-color: var(--vt-orange);
+}
+
+/* Optional: VT accent utility classes */
+.button.button--accent {
+  --ifm-button-background-color: var(--vt-orange-web);
+  --ifm-button-border-color: var(--vt-orange-web);
+  color: var(--vt-white);
+}
+
+.badge--vt {
+  --ifm-badge-background-color: var(--vt-hokie-stone);
+  --ifm-badge-color: var(--vt-white);
 }
